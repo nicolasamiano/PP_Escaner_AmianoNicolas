@@ -35,17 +35,52 @@ namespace Entidades
 
         public bool CambiarEstadoDocumento(Documento d)
         {
-            return d.AvanzarEstado();
+            if (this == d)
+            {
+                if (d is Mapa && this.locacion == Departamento.procesosTecnicos)
+                {
+                    return false;
+                }
+                else if (d is Libro && this.locacion == Departamento.mapoteca)
+                {
+                    return false;
+                }
+                else
+                {
+                    return d.AvanzarEstado();
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static bool operator ==(Escaner e, Documento d)
         {
-            return e.listaDocumentos.Contains(d);
+            foreach (Documento dc in e.listaDocumentos)
+            {
+                if (dc is Mapa mapa && d is Mapa mapa2)
+                {
+                    if (mapa == mapa2)
+                    {
+                        return true;
+                    }
+                }
+                else if (dc is Libro libro && d is Libro libro2)
+                {
+                    if (libro == libro2)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public static bool operator !=(Escaner e, Documento d)
         {
-            return !(e.listaDocumentos.Contains(d));
+            return !(e == d);
         }
 
         public static bool operator +(Escaner e, Documento d)
@@ -55,14 +90,14 @@ namespace Entidades
             {
                 if (e.tipo == TipoDoc.libro && d is Libro)
                 {
-                    e.CambiarEstadoDocumento(d);
                     e.listaDocumentos.Add(d);
+                    e.CambiarEstadoDocumento(d);
                     retorno = true;
                 }
                 else if (e.tipo == TipoDoc.mapa && d is Mapa)
                 {
-                    e.CambiarEstadoDocumento(d);
                     e.listaDocumentos.Add(d);
+                    e.CambiarEstadoDocumento(d);
                     retorno = true;
                 }
             }

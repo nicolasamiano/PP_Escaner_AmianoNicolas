@@ -4,16 +4,16 @@ namespace Entidades
 {
     public abstract class Documento
     {
-        int año;
+        int anio;
         string autor;
         string barcode;
         Paso estado;
         string numNormalizado;
         string titulo;
 
-        public Documento(string titulo, string autor, int año, string numNormalizado, string barcode)
+        public Documento(string titulo, string autor, int anio, string numNormalizado, string barcode)
         {
-            this.año = año;
+            this.anio = anio;
             this.autor = autor;
             this.barcode = barcode;
             this.estado = Paso.Inicio;
@@ -21,7 +21,7 @@ namespace Entidades
             this.titulo = titulo;
         }
 
-        public int Año { get => año; }
+        public int Anio { get => anio; }
         public string Autor { get => autor; }
         public string Barcode { get => barcode; }
         public Paso Estado { get => estado; }
@@ -30,13 +30,13 @@ namespace Entidades
 
         public bool AvanzarEstado()
         {
-            if (estado == Paso.Terminado)
+            if (this.estado == Paso.Terminado)
             {
                 return false;
             }
             else
             {
-                estado++;
+                this.estado++;
                 return true;
             }
         }
@@ -46,7 +46,7 @@ namespace Entidades
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Titulo: {this.titulo}");
             sb.AppendLine($"Autor: {this.autor}");
-            sb.AppendLine($"Año: {this.año}");
+            sb.AppendLine($"Año: {this.anio}");
             sb.AppendLine($"Cód. de barras: {this.barcode}");
             sb.AppendLine($"Estado: {this.estado}");
             sb.AppendLine($"Numero Normalizado: {this.NumNormalizado}");

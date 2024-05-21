@@ -27,7 +27,7 @@ namespace Entidades
 
         public static bool operator !=(Libro l1, Libro l2)
         {
-            return !(l1.Barcode == l2.Barcode || l1.ISBN == l2.ISBN || (l1.Titulo == l2.Titulo && l1.Autor == l2.Autor));
+            return !(l1 == l2);
         }
 
         public override string ToString()
@@ -35,10 +35,10 @@ namespace Entidades
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Titulo: {base.Titulo}");
             sb.AppendLine($"Autor: {base.Autor}");
-            sb.AppendLine($"Año: {base.Año.ToString()}");
-            sb.AppendLine($"ISBN: {ISBN}");
+            sb.AppendLine($"Año: {base.Anio}");
+            sb.AppendLine($"ISBN: {this.ISBN}");
             sb.AppendLine($"Cod. de barras: {base.Barcode}");
-            sb.AppendLine($"Numero de paginas: {numPaginas}.");
+            sb.AppendLine($"Numero de paginas: {this.numPaginas}.");
             return sb.ToString();
         }
     }
