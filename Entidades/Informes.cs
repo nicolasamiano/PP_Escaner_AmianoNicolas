@@ -10,10 +10,10 @@ namespace Entidades
     {
         public static void MostrarDistribuidos(Escaner e, out int extension, out int cantidad, out string resumen)
         {
-            MostrarDocumentosPorEstado(e, Paso.Distribuido, out extension, out cantidad, out resumen);
+            MostrarDocumentosPorEstado(e, Documento.Paso.Distribuido, out extension, out cantidad, out resumen);
         }
 
-        private static void MostrarDocumentosPorEstado(Escaner e, Paso estado, out int extension, out int cantidad, out string resumen)
+        private static void MostrarDocumentosPorEstado(Escaner e, Documento.Paso estado, out int extension, out int cantidad, out string resumen)
         {
             extension = 0;
             cantidad = 0;
@@ -38,17 +38,17 @@ namespace Entidades
 
         public static void MostrarEnEscaner(Escaner e, out int extension, out int cantidad, out string resumen)
         {
-            MostrarDocumentosPorEstado(e, Paso.EnEscaner, out extension, out cantidad, out resumen);
+            MostrarDocumentosPorEstado(e, Documento.Paso.EnEscaner, out extension, out cantidad, out resumen);
         }
 
         public static void MostrarEnRevision(Escaner e, out int extension, out int cantidad, out string resumen)
         {
-            MostrarDocumentosPorEstado(e, Paso.EnRevision, out extension, out cantidad, out resumen);
+            MostrarDocumentosPorEstado(e, Documento.Paso.EnRevision, out extension, out cantidad, out resumen);
         }
 
         public static void MostrarTerminados(Escaner e, out int extension, out int cantidad, out string resumen)
         {
-            MostrarDocumentosPorEstado(e, Paso.Terminado, out extension, out cantidad, out resumen);
+            MostrarDocumentosPorEstado(e, Documento.Paso.Terminado, out extension, out cantidad, out resumen);
         }
     }
 }

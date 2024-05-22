@@ -21,6 +21,15 @@ namespace Entidades
             this.titulo = titulo;
         }
 
+        public enum Paso
+        {
+            Inicio,
+            Distribuido,
+            EnEscaner,
+            EnRevision,
+            Terminado
+        }
+
         public int Anio { get => anio; }
         public string Autor { get => autor; }
         public string Barcode { get => barcode; }
