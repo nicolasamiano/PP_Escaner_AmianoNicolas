@@ -24,13 +24,13 @@ namespace Entidades
                 {
                     extension += libro.NumPaginas;
                     cantidad++;
-                    sb.AppendLine(libro.ToString());
+                    sb.Append(libro.ToString());
                 }
                 else if (d is Mapa mapa && d.Estado == estado)
                 {
                     extension += mapa.Superficie;
                     cantidad++;
-                    sb.AppendLine(mapa.ToString());
+                    sb.Append(mapa.ToString());
                 }
             }
             resumen = sb.ToString();
